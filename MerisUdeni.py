@@ -71,13 +71,13 @@ while True:
 
 
 
-    #cv2.imshow("orginal with line", myimg)	
+    cv2.imshow("orginal with line", myimg)	
     
 
-    cv2.waitKey(125)
+    
     rawCapture.truncate(0)
    
-    if (cv2.waitKey(1) & 0xFF == ord('q')):
+    if (cv2.waitKey(5000) & 0xFF == ord('q')):
         break
   
 cv2.destroyAllWindows()
