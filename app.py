@@ -10,6 +10,7 @@ from picamera.array import PiRGBArray
 from picamera import PiCamera
 from datetime import datetime
 import time
+import os
 
 print("Programma sāk darbu")
 
