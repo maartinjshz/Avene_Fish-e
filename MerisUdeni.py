@@ -15,9 +15,7 @@ NeTirsVert = []
 
 
 
-camera = PiCamera()
-camera.resolution = (640, 360)
-rawCapture = PiRGBArray(camera, size=(640, 360))
+cap = cv2.VideoCapture(0)
 time.sleep(0.1)
 
 with open('dati.csv', 'r') as file:
@@ -62,8 +60,8 @@ while True:
     
    
 
-    camera.capture(rawCapture, format="bgr")
-    myimg = rawCapture.array
+    ret, frame = cap.read()
+    myimg = frame.array
 
 
     Stavoklis = Kamera(myimg)
@@ -71,13 +69,14 @@ while True:
 
 
 
-    cv2.imshow("orginal with line", myimg)	
+    cv2.imshow("orginal with line",frame)	
     
 
     
-    rawCapture.truncate(0)
+    frame.truncate(0)
    
     if (cv2.waitKey(5000) & 0xFF == ord('q')):
         break
   
+cap.release()
 cv2.destroyAllWindows()
