@@ -64,4 +64,4 @@ while True:
     key = cv2.waitKey(1) & 0xFF	
 
 
-    time.sleep(10)
+    
