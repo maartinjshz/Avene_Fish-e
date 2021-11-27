@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from flask import Flask, render_template
 import cv2
 import numpy
 import csv
@@ -9,16 +11,10 @@ from picamera import PiCamera
 from datetime import datetime
 import time
 
+# _________________________________
+# Nolasa datus
 TirsVert = []
 NeTirsVert = []
-
-
-
-
-camera = PiCamera()
-camera.resolution = (640, 360)
-rawCapture = PiRGBArray(camera, size=(640, 360))
-time.sleep(0.1)
 
 with open('dati.csv', 'r') as file:
     csv_reader = csv.reader(file, delimiter=',')
@@ -32,8 +28,19 @@ def Most_Common(lst):
     data = Counter(lst)
     return data.most_common(1)[0][0]
 
-# APŗēķina pašreizējo ūdens stāvokli
-def Kamera(myimg):
+# Saņemt tīrību?!?
+def TirVert():
+
+    camera = PiCamera()
+    rawCapture = PiRGBArray(camera)
+    # allow the camera to warmup
+    time.sleep(0.1)
+    # grab an image from the camera
+    camera.capture(rawCapture, format="bgr")
+    myimg = rawCapture.array
+    # display the image on screen and wait for a keypress
+    cv2.waitKey(0)
+
     MinVert = [10**5,10**5,10**5,10**5,10**5]
     MinVertPied = ["","","","",""]
     avg_color_per_row = numpy.average(myimg, axis=0)
@@ -54,22 +61,33 @@ def Kamera(myimg):
             MinVert[indeks] = norma
             MinVertPied[indeks] = "netirs"
     return Most_Common(MinVertPied)
-Laiks = time.localtime()
-Starp = int(Laiks[3])*10 + int(Laiks[4])
 
-# Paņem sample attēla vidējo vērtību, lai salīdzinatu
-for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):	
-        myimg = frame.array	
-        # camera.capture(rawCapture, format="bgr")
-        # myimg = rawCapture.array
-        Stavoklis = Kamera(myimg)
-        print(Stavoklis)
-        cv2.imshow("orginal with line", myimg)	
-        
+app = Flask(__name__)
 
 
-        rawCapture.truncate(0)
-    
-        if (cv2.waitKey(5000) & 0xFF == ord('q')):
-            break
-    
+@app.route('/')
+def home():
+    print(TirVert())
+    return render_template('sakums.html')
+
+
+@app.route('/assistent')
+def assistent():
+    return render_template('Assistent.html')
+
+@app.route('/history')
+def history():
+    return render_template('History.html')
+@app.route('/settings')
+def settings():
+    return render_template('Settings.html')
+
+@app.route('/info')
+def info():
+    return render_template('Info.html')
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+ 
