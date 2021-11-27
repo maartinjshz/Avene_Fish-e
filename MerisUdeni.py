@@ -60,5 +60,8 @@ while True:
     cv2.imshow("orginal with line", myimg)	
     print(Most_Common(MinVertPied))
     
-    rawCapture.truncate(0)	
+    rawCapture.truncate(0)
+    key = cv2.waitKey(1) & 0xFF	
+
+
     time.sleep(10)
