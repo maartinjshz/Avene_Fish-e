@@ -11,8 +11,7 @@ import time
 TirsVert = []
 NeTirsVert = []
 
-MinVert = [10**5,10**5,10**5]
-MinVertPied = ["","",""]
+
 
 
 camera = PiCamera()
@@ -35,6 +34,8 @@ def Most_Common(lst):
 # Paņem sample attēla vidējo vērtību, lai salīdzinatu
 while True:
     
+    MinVert = [10**5,10**5,10**5]
+    MinVertPied = ["","",""]
 
     camera.capture(rawCapture, format="bgr")
     myimg = rawCapture.array
