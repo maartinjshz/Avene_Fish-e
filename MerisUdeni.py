@@ -16,7 +16,8 @@ MinVertPied = ["","",""]
 
 
 camera = PiCamera()
-rawCapture = PiRGBArray(camera)
+camera.resolution = (640, 360)
+rawCapture = PiRGBArray(camera, size=(640, 360))
 time.sleep(0.1)
 
 with open('dati.csv', 'r') as file:
@@ -57,4 +58,3 @@ while True:
             MinVertPied[indeks] = "netirs"
     time.sleep(50)
     print(Most_Common(MinVertPied))
-
