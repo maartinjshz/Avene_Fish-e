@@ -47,7 +47,7 @@ def Vid_vertiba_makoniem(TirsVert,NeTirsVert):
         VidVrtNeTirs[2] =   VidVrtNeTirs[2] + NeTirsVert[i][2]
 
     VidVrtTirs[1] = VidVrtTirs[1] / n
-    VidVrtTirs[0] = VidVrtTirs[0] / n
+    VidVrtTirs[2] = VidVrtTirs[2] / n
     VidVrtTirs[0] = VidVrtTirs[0] / n
     
     VidVrtNeTirs[0] = VidVrtNeTirs[0] / n
@@ -110,11 +110,12 @@ def TirVert():
     print("Tīrības procenti")
     print(Prcneti_Tiriba)
     print("Tīrība:")
-    print(Most_Common(MinVertPied))
+    Biezakais = Most_Common(MinVertPied)
+    print(Biezakais)
     cv2.waitKey(1)
 
     print("Apprēķini ir veikti")
-    return Most_Common(MinVertPied)
+    return Biezakais
 
 print("Aplikācijas sāk darbu")
 
