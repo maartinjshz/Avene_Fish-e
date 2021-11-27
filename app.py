@@ -71,7 +71,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    print(TirVert())
+   # print(TirVert())
     return render_template('sakums.html')
 
 
