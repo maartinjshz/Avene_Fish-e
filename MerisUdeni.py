@@ -12,6 +12,8 @@ TirsVert = []
 NeTirsVert = []
 
 
+cap = cv2.VideoCapture(0)
+fps = cap.get(cv2.CAP_PROP_POS_FRAMES)
 
 
 camera = PiCamera()
@@ -32,7 +34,7 @@ def Most_Common(lst):
     return data.most_common(1)[0][0]
 
 # Paņem sample attēla vidējo vērtību, lai salīdzinatu
-while True:
+while cap.isOpened():
     
     MinVert = [10**5,10**5,10**5,10**5,10**5]
     MinVertPied = ["","","","",""]
@@ -61,10 +63,14 @@ while True:
     print(Most_Common(MinVertPied))
     
     rawCapture.truncate(0)
-
-    key = cv2.waitKey(1) & 0xFF	
-
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    cf = cap.get(cv2.CAP_PROP_POS_FRAMES) - 1
+    cap.set(cv2.CAP_PROP_POS_FRAMES, cf+50)
+    # cv2.setTrackbarPos("pos_trackbar", "Frame Grabber", 
+    int(cap.get(cv2.CAP_PROP_FPS))
+    time.sleep(2)
+    if (cv2.waitKey(1) & 0xFF == ord('q')):
         break
-    
   
+
+cap.release()
+cv2.destroyAllWindows()
