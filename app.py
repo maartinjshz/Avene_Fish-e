@@ -63,8 +63,8 @@ def TirVert():
             indeks = MinVert.index(max(MinVert))
             MinVert[indeks] = norma
             MinVertPied[indeks] = "netirs"
-    rawCapture.truncate(0)
     cv2.waitKey(0)
+    camera.close()
     return Most_Common(MinVertPied)
 
 print("Aplikācijas sāk darbu")
