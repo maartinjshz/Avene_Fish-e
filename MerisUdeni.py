@@ -13,7 +13,6 @@ NeTirsVert = []
 
 
 
-
 camera = PiCamera()
 camera.resolution = (640, 360)
 rawCapture = PiRGBArray(camera, size=(640, 360))
@@ -62,6 +61,7 @@ while True:
     
     rawCapture.truncate(0)
 
-    key = cv2.waitKey(1) & 0xFF	
-    
-    
+    key = cv2.waitKey(10) & 0xFF	
+
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
