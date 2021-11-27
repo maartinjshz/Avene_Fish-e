@@ -68,7 +68,7 @@ def TirVert():
             MinVertPied[indeks] = "netirs"
     cv2.waitKey(0)
 
-
+    print("Apprēķini ir veikti")
     return Most_Common(MinVertPied)
 
 print("Aplikācijas sāk darbu")
@@ -78,7 +78,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    print(TirVert())
+    TirVert()
     return render_template('sakums.html')
 
 
