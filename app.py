@@ -11,6 +11,8 @@ from picamera import PiCamera
 from datetime import datetime
 import time
 
+print("Programma sāk darbu")
+
 # _________________________________
 # Nolasa datus
 TirsVert = []
@@ -62,6 +64,8 @@ def TirVert():
             MinVertPied[indeks] = "netirs"
     return Most_Common(MinVertPied)
 
+print("Aplikācijas sāk darbu")
+
 app = Flask(__name__)
 
 
@@ -88,6 +92,7 @@ def info():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=80, host='0.0.0.0')
+    print("Programma beidz darbu")
 
  
