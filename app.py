@@ -16,7 +16,8 @@ print("Programma sāk darbu")
 
 camera = PiCamera()
 camera.resolution = (640, 360)
-
+rawCapture = PiRGBArray(camera)
+time.sleep(0.1)
 # _________________________________
 # Nolasa datus
 global TirsVert, NeTirsVert, VidVrtTirs, NeVidVrtTirs
@@ -77,8 +78,8 @@ def procenti(punkts,VidVrtTirs, VidVrtNeTirs):
 def TirVert():
 
     
-    rawCapture = PiRGBArray(camera)
-    # allow the camera to warmup
+    
+    
     time.sleep(0.1)
     # grab an image from the camera
     camera.capture(rawCapture, format="bgr")
