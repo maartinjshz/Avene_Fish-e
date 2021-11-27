@@ -69,7 +69,7 @@ while True:
 
 
 
-    cv2.imshow("orginal with line",frame)	
+    cv2.imshow("orginal with line",myimg)	
     
 
     
