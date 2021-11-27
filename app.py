@@ -93,7 +93,7 @@ def info():
 
 if __name__ == '__main__':
     print(123)
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, port = 5000, host='0.0.0.0')
     print("Programma beidz darbu")
 
  
