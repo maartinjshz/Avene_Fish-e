@@ -59,3 +59,4 @@ while True:
     
     print(Most_Common(MinVertPied))
     time.sleep(30)
+    rawCapture.truncate(0)	
