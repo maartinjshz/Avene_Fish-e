@@ -57,7 +57,7 @@ while True:
             indeks = MinVert.index(max(MinVert))
             MinVert[indeks] = norma
             MinVertPied[indeks] = "netirs"
-    
+    cv2.imshow("orginal with line", myimg)	
     print(Most_Common(MinVertPied))
     time.sleep(30)
     rawCapture.truncate(0)	
