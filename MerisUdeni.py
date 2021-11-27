@@ -56,5 +56,6 @@ while True:
             indeks = MinVert.index(max(MinVert))
             MinVert[indeks] = norma
             MinVertPied[indeks] = "netirs"
-    time.sleep(50)
+    
     print(Most_Common(MinVertPied))
+    time.sleep(30)
