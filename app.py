@@ -71,7 +71,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-   # print(TirVert())
+    print(TirVert())
     return render_template('sakums.html')
 
 
@@ -92,6 +92,7 @@ def info():
 
 
 if __name__ == '__main__':
+    print(123)
     app.run(debug=True, host='0.0.0.0')
     print("Programma beidz darbu")
 
