@@ -21,7 +21,7 @@ time.sleep(0.1)
 
 # _________________________________
 # Nolasa datus
-global TirsVert, NeTirsVert, VidVrtTirs, NeVidVrtTirs
+global TirsVert, NeTirsVert, VidVrtTirs, NeVidVrtTirs, atelaLink
 TirsVert = []
 NeTirsVert = []
 VidVrtTirs = [0,0,0]
@@ -90,7 +90,10 @@ def TirVert():
         myimg = frame.array
         # display the image on screen and wait for a keypress
         #os.remove("static/attels/frame.jpg")
-        cv2.imwrite("static/attels/frame.jpg" , myimg)     # save frame as JPEG file
+        Datums = str(time.localtime(time.time()))
+        atelaLink =  "static/attels/fram%se.jpg"  % Datums  
+        cv2.imwrite(atelaLink   , myimg)     # save frame as JPEG file
+       
         MinVert = [10**5,10**5,10**5,10**5,10**5]
         MinVertPied = ["","","","",""]
         avg_color_per_row = numpy.average(myimg, axis=0)
