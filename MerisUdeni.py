@@ -13,6 +13,7 @@ NeTirsVert = []
 
 
 
+
 camera = PiCamera()
 camera.resolution = (640, 360)
 rawCapture = PiRGBArray(camera, size=(640, 360))
@@ -36,7 +37,7 @@ while True:
     MinVert = [10**5,10**5,10**5,10**5,10**5]
     MinVertPied = ["","","","",""]
 
-    camera.capture_continuous(rawCapture, format="bgr", use_video_port=True)
+    camera.capture_continuous(rawCapture, format="bgr")
     myimg = rawCapture.array
 
     avg_color_per_row = numpy.average(myimg, axis=0)
@@ -65,3 +66,5 @@ while True:
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
+    
+  
