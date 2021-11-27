@@ -19,6 +19,7 @@ camera.resolution = (640, 360)
 
 # _________________________________
 # Nolasa datus
+global TirsVert, NeTirsVert
 TirsVert = []
 NeTirsVert = []
 
@@ -66,7 +67,7 @@ def TirVert():
             indeks = MinVert.index(max(MinVert))
             MinVert[indeks] = norma
             MinVertPied[indeks] = "netirs"
-    cv2.waitKey(0)
+    cv2.waitKey(1)
 
     print("Apprēķini ir veikti")
     return Most_Common(MinVertPied)
