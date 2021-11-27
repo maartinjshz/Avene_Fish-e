@@ -15,7 +15,9 @@ NeTirsVert = []
 
 
 
-cap = cv2.VideoCapture(0)
+camera = PiCamera()
+camera.resolution = (640, 360)
+rawCapture = PiRGBArray(camera, size=(640, 360))
 time.sleep(0.1)
 
 with open('dati.csv', 'r') as file:
@@ -56,12 +58,12 @@ Laiks = time.localtime()
 Starp = int(Laiks[3])*10 + int(Laiks[4])
 
 # Paņem sample attēla vidējo vērtību, lai salīdzinatu
-while True:
-    
-   
+for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):	
 
-    ret, frame = cap.read()
-    myimg = frame.array
+	myimg = frame.array	
+
+    # camera.capture(rawCapture, format="bgr")
+   # myimg = rawCapture.array
 
 
     Stavoklis = Kamera(myimg)
@@ -69,14 +71,13 @@ while True:
 
 
 
-    cv2.imshow("orginal with line",myimg)	
+    cv2.imshow("orginal with line", myimg)	
     
 
     
-    frame.truncate(0)
+    rawCapture.truncate(0)
    
     if (cv2.waitKey(5000) & 0xFF == ord('q')):
         break
   
-cap.release()
 cv2.destroyAllWindows()
