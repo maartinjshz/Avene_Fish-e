@@ -35,6 +35,7 @@ def Most_Common(lst):
 def TirVert():
 
     camera = PiCamera()
+    camera.resolution = (640, 360)
     rawCapture = PiRGBArray(camera)
     # allow the camera to warmup
     time.sleep(0.1)
@@ -65,6 +66,7 @@ def TirVert():
             MinVertPied[indeks] = "netirs"
     cv2.waitKey(0)
     camera.close()
+
     return Most_Common(MinVertPied)
 
 print("Aplikācijas sāk darbu")
