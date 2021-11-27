@@ -6,14 +6,13 @@ import  math
 from collections import Counter
 from picamera.array import PiRGBArray
 from picamera import PiCamera
+from datetime import datetime
 import time
 
 TirsVert = []
 NeTirsVert = []
 
 
-cap = cv2.VideoCapture(0)
-fps = cap.get(cv2.CAP_PROP_POS_FRAMES)
 
 
 camera = PiCamera()
@@ -55,30 +54,30 @@ def Kamera(myimg):
             MinVert[indeks] = norma
             MinVertPied[indeks] = "netirs"
     return Most_Common(MinVertPied)
-
+Laiks = time.localtime()
+Starp = int(Laiks[3])*10 + int(Laiks[4])
 
 # Paņem sample attēla vidējo vērtību, lai salīdzinatu
-while cap.isOpened():
+while True:
     
    
-    frame = cap.read()
-    #camera.capture(rawCapture, format="bgr")
-    #myimg = rawCapture.array
-    myimg = frame
+
+    camera.capture(rawCapture, format="bgr")
+    myimg = rawCapture.array
+
+
     Stavoklis = Kamera(myimg)
     print(Stavoklis)
-    cv2.imshow("orginal with line", myimg)	
+
+
+
+    #cv2.imshow("orginal with line", myimg)	
     
-    
+
+    cv2.waitKey(125)
     rawCapture.truncate(0)
-    cf = cap.get(cv2.CAP_PROP_POS_FRAMES) - 1
-    cap.set(cv2.CAP_PROP_POS_FRAMES, cf+50)
-    # cv2.setTrackbarPos("pos_trackbar", "Frame Grabber", 
-    int(cap.get(cv2.CAP_PROP_FPS))
-    time.sleep(2)
+   
     if (cv2.waitKey(1) & 0xFF == ord('q')):
         break
   
-
-cap.release()
 cv2.destroyAllWindows()
