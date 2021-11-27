@@ -42,7 +42,7 @@ def TirVert():
     camera.capture(rawCapture, format="bgr")
     myimg = rawCapture.array
     # display the image on screen and wait for a keypress
-    cv2.waitKey(0)
+   
 
     MinVert = [10**5,10**5,10**5,10**5,10**5]
     MinVertPied = ["","","","",""]
@@ -63,6 +63,8 @@ def TirVert():
             indeks = MinVert.index(max(MinVert))
             MinVert[indeks] = norma
             MinVertPied[indeks] = "netirs"
+    rawCapture.truncate(0)
+    cv2.waitKey(0)
     return Most_Common(MinVertPied)
 
 print("Aplikācijas sāk darbu")
