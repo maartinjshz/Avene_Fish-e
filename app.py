@@ -14,6 +14,10 @@ import os
 
 print("Programma sāk darbu")
 
+camera = PiCamera()
+camera.resolution = (640, 360)
+rawCapture = PiRGBArray(camera)
+time.sleep(0.1)
 
 # _________________________________
 # Nolasa datus
@@ -74,10 +78,7 @@ def procenti(punkts,VidVrtTirs, VidVrtNeTirs):
 # Saņemt tīrību?!?
 def TirVert():
 
-    camera = PiCamera()
-    camera.resolution = (640, 360)
-    rawCapture = PiRGBArray(camera)
-    time.sleep(0.1)
+    
     
   
     # grab an image from the camera
@@ -112,7 +113,7 @@ def TirVert():
     print("Tīrība:")
     Biezakais = Most_Common(MinVertPied)
     print(Biezakais)
-    cv2.waitKey(1)
+    cv2.waitKey(50)
     key = cv2.waitKey(1000) & 0xFF
     print("Apprēķini ir veikti")
     return Biezakais

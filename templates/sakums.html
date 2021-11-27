@@ -65,7 +65,9 @@
       </ul>
   </article>
 </section>
-<img src="/static/attels/frame.jpg" alt="Image Of fish">
+<div>
+  <img src="{{ url_for('/static/attels/frame.jpg', filename=filename) }}">
+</div>
 <footer>
   <p> </p>
 </footer>
