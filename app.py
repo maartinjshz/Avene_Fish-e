@@ -14,6 +14,9 @@ import os
 
 print("Programma sāk darbu")
 
+camera = PiCamera()
+camera.resolution = (640, 360)
+
 # _________________________________
 # Nolasa datus
 TirsVert = []
@@ -34,8 +37,7 @@ def Most_Common(lst):
 # Saņemt tīrību?!?
 def TirVert():
 
-    camera = PiCamera()
-    camera.resolution = (640, 360)
+    
     rawCapture = PiRGBArray(camera)
     # allow the camera to warmup
     time.sleep(0.1)
@@ -65,7 +67,7 @@ def TirVert():
             MinVert[indeks] = norma
             MinVertPied[indeks] = "netirs"
     cv2.waitKey(0)
-    camera.close()
+
 
     return Most_Common(MinVertPied)
 
