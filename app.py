@@ -81,43 +81,46 @@ def TirVert():
     rawCapture = PiRGBArray(camera)
     time.sleep(0.1)
     
-  
-    # grab an image from the camera
-    camera.capture(rawCapture, format="bgr")
-    myimg = rawCapture.array
-    # display the image on screen and wait for a keypress
-    os.remove("static/attels/frame.jpg")
-    cv2.imwrite("static/attels/frame.jpg" , myimg)     # save frame as JPEG file
-    MinVert = [10**5,10**5,10**5,10**5,10**5]
-    MinVertPied = ["","","","",""]
-    avg_color_per_row = numpy.average(myimg, axis=0)
-    avg_color = numpy.average(avg_color_per_row, axis=0)
-    print(avg_color)
-    for i in TirsVert:
-        
-        norma = math.sqrt( (i[0]-avg_color[0])**2 + (i[1]-avg_color[1])**2 + (i[2]-avg_color[2])**2 )
-        if max(MinVert) > norma:
-            indeks = MinVert.index(max(MinVert))
-            MinVert[indeks] = norma
-            MinVertPied[indeks] = "tirs"
+    for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):	
+        # grab an image from the camera
+        #camera.capture(rawCapture, format="bgr")
 
-    for i in NeTirsVert:
-        norma = math.sqrt( (i[0]-avg_color[0])**2 + (i[1]-avg_color[1])**2 + (i[2]-avg_color[2])**2 )
-        if max(MinVert) > norma:
-            indeks = MinVert.index(max(MinVert))
-            MinVert[indeks] = norma
-            MinVertPied[indeks] = "netirs"
 
-    Prcneti_Tiriba = procenti(avg_color ,VidVrtTirs, VidVrtNeTirs)
-    print("Tīrības procenti")
-    print(Prcneti_Tiriba)
-    print("Tīrība:")
-    Biezakais = Most_Common(MinVertPied)
-    print(Biezakais)
-    cv2.waitKey(50)
-    key = cv2.waitKey(1000) & 0xFF
-    print("Apprēķini ir veikti")
-    return Biezakais
+       # myimg = rawCapture.array
+        myimg = frame.array
+        # display the image on screen and wait for a keypress
+        os.remove("static/attels/frame.jpg")
+        cv2.imwrite("static/attels/frame.jpg" , myimg)     # save frame as JPEG file
+        MinVert = [10**5,10**5,10**5,10**5,10**5]
+        MinVertPied = ["","","","",""]
+        avg_color_per_row = numpy.average(myimg, axis=0)
+        avg_color = numpy.average(avg_color_per_row, axis=0)
+        print(avg_color)
+        for i in TirsVert:
+            
+            norma = math.sqrt( (i[0]-avg_color[0])**2 + (i[1]-avg_color[1])**2 + (i[2]-avg_color[2])**2 )
+            if max(MinVert) > norma:
+                indeks = MinVert.index(max(MinVert))
+                MinVert[indeks] = norma
+                MinVertPied[indeks] = "tirs"
+
+        for i in NeTirsVert:
+            norma = math.sqrt( (i[0]-avg_color[0])**2 + (i[1]-avg_color[1])**2 + (i[2]-avg_color[2])**2 )
+            if max(MinVert) > norma:
+                indeks = MinVert.index(max(MinVert))
+                MinVert[indeks] = norma
+                MinVertPied[indeks] = "netirs"
+
+        Prcneti_Tiriba = procenti(avg_color ,VidVrtTirs, VidVrtNeTirs)
+        print("Tīrības procenti")
+        print(Prcneti_Tiriba)
+        print("Tīrība:")
+        Biezakais = Most_Common(MinVertPied)
+        print(Biezakais)
+        cv2.waitKey(50)
+        key = cv2.waitKey(1000) & 0xFF
+        print("Apprēķini ir veikti")
+        return Biezakais
 
 print("Aplikācijas sāk darbu")
 
