@@ -112,7 +112,7 @@ def TirVert():
     print("Tīrība:")
     Biezakais = Most_Common(MinVertPied)
     print(Biezakais)
-    cv2.waitKey(500)
+    cv2.waitKey(1000)
 
     print("Apprēķini ir veikti")
     return Biezakais
