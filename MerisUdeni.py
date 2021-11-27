@@ -35,7 +35,7 @@ def Most_Common(lst):
 while True:
     
 
-    camera.capture(rawCapture, format="bgr")
+    camera.capture(rawCapture, format="bgr", size = (640,360))
     myimg = rawCapture.array
 
     avg_color_per_row = numpy.average(myimg, axis=0)
