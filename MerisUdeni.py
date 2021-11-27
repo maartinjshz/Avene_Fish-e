@@ -37,7 +37,7 @@ while True:
     MinVert = [10**5,10**5,10**5,10**5,10**5]
     MinVertPied = ["","","","",""]
 
-    camera.capture(rawCapture, format="bgr")
+    camera.capture_continuous(rawCapture, format="bgr", use_video_port=True)
     myimg = rawCapture.array
 
     avg_color_per_row = numpy.average(myimg, axis=0)
@@ -63,6 +63,5 @@ while True:
     rawCapture.truncate(0)
 
     key = cv2.waitKey(1) & 0xFF	
-    time.sleep(5)
-
+    
     
