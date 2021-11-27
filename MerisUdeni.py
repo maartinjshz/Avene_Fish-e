@@ -33,15 +33,10 @@ def Most_Common(lst):
     data = Counter(lst)
     return data.most_common(1)[0][0]
 
-# Paņem sample attēla vidējo vērtību, lai salīdzinatu
-while cap.isOpened():
-    
+# APŗēķina pašreizējo ūdens stāvokli
+def Kamera(myimg):
     MinVert = [10**5,10**5,10**5,10**5,10**5]
     MinVertPied = ["","","","",""]
-
-    camera.capture(rawCapture, format="bgr")
-    myimg = rawCapture.array
-
     avg_color_per_row = numpy.average(myimg, axis=0)
     avg_color = numpy.average(avg_color_per_row, axis=0)
     print(avg_color)
@@ -59,8 +54,21 @@ while cap.isOpened():
             indeks = MinVert.index(max(MinVert))
             MinVert[indeks] = norma
             MinVertPied[indeks] = "netirs"
+    return Most_Common(MinVertPied)
+
+
+# Paņem sample attēla vidējo vērtību, lai salīdzinatu
+while cap.isOpened():
+    
+   
+    frame = cap.read()
+    #camera.capture(rawCapture, format="bgr")
+    #myimg = rawCapture.array
+    myimg = frame
+    Stavoklis = Kamera(myimg)
+    print(Stavoklis)
     cv2.imshow("orginal with line", myimg)	
-    print(Most_Common(MinVertPied))
+    
     
     rawCapture.truncate(0)
     cf = cap.get(cv2.CAP_PROP_POS_FRAMES) - 1
