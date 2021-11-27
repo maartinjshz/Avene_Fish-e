@@ -61,7 +61,7 @@ while True:
     
     rawCapture.truncate(0)
 
-    key = cv2.waitKey(10) & 0xFF	
+    key = cv2.waitKey(1) & 0xFF	
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
