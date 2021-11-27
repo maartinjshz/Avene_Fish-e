@@ -56,7 +56,7 @@ def Vid_vertiba_makoniem(TirsVert,NeTirsVert):
 
     
 
-    return [VidVrtTirs, VidVrtNeTirs, VidAttalums]
+    return [VidVrtTirs, VidVrtNeTirs]
 
 
     
