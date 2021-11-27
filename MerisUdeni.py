@@ -61,7 +61,8 @@ while True:
     print(Most_Common(MinVertPied))
     
     rawCapture.truncate(0)
-    key = cv2.waitKey(1) & 0xFF	
 
+    key = cv2.waitKey(1) & 0xFF	
+    time.sleep(5)
 
     
