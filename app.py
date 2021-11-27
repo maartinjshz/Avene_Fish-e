@@ -78,7 +78,8 @@ def procenti(punkts,VidVrtTirs, VidVrtNeTirs):
 # Saņemt tīrību?!?
 def TirVert():
 
-    
+    rawCapture = PiRGBArray(camera)
+    time.sleep(0.1)
     
   
     # grab an image from the camera
