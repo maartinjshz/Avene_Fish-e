@@ -83,8 +83,7 @@ def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
 # Saņemt tīrību?!?
 def TirVert():
 
-    rawCapture = PiRGBArray(camera)
-    time.sleep(0.1)
+ 
     
     for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):	
         # grab an image from the camera
