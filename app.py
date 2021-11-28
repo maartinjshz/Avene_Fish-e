@@ -139,8 +139,6 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-   
-
     return render_template('sakums.html')
 
 
@@ -160,11 +158,9 @@ def settings():
     return render_template('Settings.html')
 
 # 
-@app.route('/info',methods=['GET', 'POST'])
+@app.route('/info')
 def info():
-    atelaLink,tirums = TirVert()
-    print(atelaLink)
-    return render_template('Info.html', atelaLink = atelaLink,tirums=tirums)
+    return render_template('Info.html')
 
 
 if __name__ == '__main__':
