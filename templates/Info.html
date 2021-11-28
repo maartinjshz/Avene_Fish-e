@@ -12,14 +12,13 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-image: url("static/fons/fonins2.jpg");
-    background-size: 400px;
     background-attachment: fixed;
     font-family: "Arial Black", Gadget, sans-serif;    
 }
 
 /* Style the header */
 header {
-    padding: 30px;
+    padding: 1%;
     text-align: center;
     font-size: 50px;
     color: white;
@@ -28,7 +27,7 @@ header {
 
 
 article {
-    padding: 20px;
+    padding: 1%;
     width: 70%;
     margin-left: auto;
     margin-right: auto;
@@ -66,7 +65,11 @@ footer {
 }
 
 
-
+.teksts {
+    font-size: 15px;
+    
+    text-align: center;
+}
 
 
 
@@ -88,14 +91,23 @@ footer {
 }
 
 
-
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 a .container:hover {
     
     font-size: 25px;
 }
 
-
+#att {
+    height: 300px;
+    width:auto;
+    
+}
 
 #Attlins{
     border-color: black;
@@ -121,7 +133,7 @@ a .container:hover {
 
 .left {
   left: 10%;
-
+  
   position: absolute;
 }
 
@@ -154,11 +166,9 @@ a .container:hover {
   </header>
 <section id="KamSekcija">
 
-    <div id="DatuTeksts" class=" left" aligh: center>
-        <br>
-        <br>
-        <br>
-       <h4> Šobrīd kamerā ūdnes ir: {{tirums}}</h4> 
+    <div id="DatuTeksts" class=" left", aligh: center>
+      
+        Šobrīd kamerā ūdnes ir: {{tirums}}
     </div>  
 
     <div class=" right">
