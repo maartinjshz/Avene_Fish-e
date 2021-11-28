@@ -126,18 +126,30 @@ a .container:hover {
     background-color:rgb(112, 112, 112);
     border: 2px solid black; 
     margin: 10%;
-}
-#Attelsekscija{
-  -webkit-flex: 3;
-  -ms-flex: 3;
-  flex: 3;
-  background-color: #f1f1f1;
-  padding: 10px;
+
+
 }
 
 
 
+.split {
 
+  position: fixed;
+  z-index: 1;
+
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 10%;
+  background-color: #111;
+}
+
+.right {
+  right: 10%;
+  background-color: red;
+}
 
 
 </style>
@@ -169,9 +181,9 @@ a .container:hover {
         Šobrīd kamerā ūdnes ir: {{tirums}}
     </div>  
 
-    <article id="Attelsekscija">
+    <div class="split left">
         <img id= "Attlins" src="{{atelaLink}}" alt="aquarium" >
-    </article>
+    </div>
 
 </section>
 <header style="color:rgb(255, 153, 0)">
