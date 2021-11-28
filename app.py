@@ -111,14 +111,14 @@ def TirVert():
             if max(MinVert) > norma:
                 indeks = MinVert.index(max(MinVert))
                 MinVert[indeks] = norma
-                MinVertPied[indeks] = "tirs"
+                MinVertPied[indeks] = "Tīrs"
 
         for i in NeTirsVert:
             norma = math.sqrt( (i[0]-avg_color[0])**2 + (i[1]-avg_color[1])**2 + (i[2]-avg_color[2])**2 )
             if max(MinVert) > norma:
                 indeks = MinVert.index(max(MinVert))
                 MinVert[indeks] = norma
-                MinVertPied[indeks] = "netirs"
+                MinVertPied[indeks] = "Netīrs"
 
         Prcneti_Tiriba = procenti(avg_color ,VidVrtTirs, VidVrtNeTirs)
         print("Tīrības procenti")
