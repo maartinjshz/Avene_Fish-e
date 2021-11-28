@@ -101,12 +101,10 @@ def TirVert():
        # saite = "static/attels/" + atelaLink
         cv2.imwrite(atelaLink  , myimg)     # save frame as JPEG file
         atelaLink = "/" + atelaLink# saite  #+   atelaLink
-        print(atelaLink)
         MinVert = [10**5,10**5,10**5,10**5,10**5]
         MinVertPied = ["","","","",""]
         avg_color_per_row = numpy.average(myimg, axis=0)
         avg_color = numpy.average(avg_color_per_row, axis=0)
-        print(avg_color)
         for i in TirsVert:
             
             norma = math.sqrt( (i[0]-avg_color[0])**2 + (i[1]-avg_color[1])**2 + (i[2]-avg_color[2])**2 )
@@ -130,7 +128,6 @@ def TirVert():
         print(Biezakais)
         cv2.waitKey(50)
         key = cv2.waitKey(1000) & 0xFF
-        print("Apprēķini ir veikti")
         return atelaLink
 
 print("Aplikācijas sāk darbu")
