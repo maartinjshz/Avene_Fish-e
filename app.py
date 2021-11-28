@@ -137,10 +137,9 @@ VidVrtTirs, VidVrtNeTirst=Vid_vertiba_makoniem(TirsVert,NeTirsVert)
 app = Flask(__name__)
 
 
-@app.route('/',methods=['GET', 'POST'])
+@app.route('/')
 def home():
-    atelaLink = TirVert()
-    print(atelaLink)
+   
 
     return render_template('sakums.html', atelaLink = atelaLink)
 
@@ -160,9 +159,11 @@ def settings():
     return render_template('Settings.html')
 
 # 
-@app.route('/info')
+@app.route('/info',methods=['GET', 'POST'])
 def info():
-    return render_template('Info.html')
+    atelaLink = TirVert()
+    print(atelaLink)
+    return render_template('Info.html', atelaLink = atelaLink)
 
 
 if __name__ == '__main__':
