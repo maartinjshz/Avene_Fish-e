@@ -18,7 +18,7 @@ print("Programma sāk darbu")
 
 camera = PiCamera()
 camera.resolution = (640, 360)
-rawCapture = PiRGBArray(camera, size=(640, 480))
+rawCapture = PiRGBArray(camera, size=(640, 360))
 time.sleep(0.1)
 
 # _________________________________
