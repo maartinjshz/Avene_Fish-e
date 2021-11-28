@@ -12,6 +12,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-image: url("static/fons/fonins2.jpg");
+    background-size: 400px;
     background-attachment: fixed;
     font-family: "Arial Black", Gadget, sans-serif;    
 }
@@ -26,16 +27,23 @@ header {
 
 
 
-article {
-    padding: 1%;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #f1f1f1ec;
-    /*height: 300px; /* only for demonstration, should be removed */
+nav {
+  float: left;
+  width: 30%;
 
+  background: #ccc;
+  padding: 20px;
 }
 
+
+
+article {
+  float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: #f1f1f1;
+  
+}
 /* Clear floats after the columns */
 section:after {
     content: "";
@@ -109,38 +117,6 @@ a .container:hover {
     
 }
 
-#Attlins{
-    border-color: black;
-    float: right;
-    
-}
-
-#DatuTeksts{
-    display: block;
-    text-align: left;
-    text-align: center;
-}
-
-#KamSekcija{
-    float: center;
-    background-color:rgb(112, 112, 112);
-    border: 2px solid black; 
-    margin: 10%;
-}
-
-
-
-
-.left {
-  left: 10%;
-  
-  position: absolute;
-}
-
-.right {
-  right: 10%;
-}
-
 
 </style>
 
@@ -164,18 +140,26 @@ a .container:hover {
     <h3> Data from camera </h3>
     
   </header>
+
+
+
 <section id="KamSekcija">
 
-    <div id="DatuTeksts" class=" left", aligh: center>
+    <nav>
+        <h3>Šobrīd kamerā ūdnes ir: {{tirums}}</h3>
+    </nav>
       
-        Šobrīd kamerā ūdnes ir: {{tirums}}
-    </div>  
+        
+    
 
-    <div class=" right">
+    <article>
         <img id= "Attlins" src="{{atelaLink}}" alt="aquarium" >
-    </div>
+    </article>
 
 </section>
+
+
+
 <header style="color:rgb(255, 153, 0)">
     <h3> Data from camera </h3>
   </header>
