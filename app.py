@@ -144,9 +144,10 @@ def home():
     return render_template('sakums.html')
 
 
-@app.route('/assistent')
+@app.route('/assistent',methods=['GET', 'POST'])
 def assistent():
-    return render_template('Assistent.html')
+    atelaLink,tirums = TirVert()
+    return render_template('Assistent.html',atelaLink = atelaLink,tirums=tirums)
 
 # off - neiet
 @app.route('/history')
