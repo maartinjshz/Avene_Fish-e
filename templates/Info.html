@@ -119,6 +119,7 @@ a .container:hover {
 #DatuTeksts{
     display: block;
     text-align: left;
+    text-align: center;
 }
 
 #KamSekcija{
@@ -126,24 +127,15 @@ a .container:hover {
     background-color:rgb(112, 112, 112);
     border: 2px solid black; 
     margin: 10%;
-
-
 }
 
 
 
-.split {
-
-  position: fixed;
-  z-index: 1;
-
-  overflow-x: hidden;
-  padding-top: 20px;
-}
 
 .left {
   left: 10%;
   background-color: #111;
+  position: absolute;
 }
 
 .right {
@@ -176,12 +168,12 @@ a .container:hover {
   </header>
 <section id="KamSekcija">
 
-    <div id="DatuTeksts" class="split left">
+    <div id="DatuTeksts" class=" left">
  
         Šobrīd kamerā ūdnes ir: {{tirums}}
     </div>  
 
-    <div class="split left">
+    <div class=" right">
         <img id= "Attlins" src="{{atelaLink}}" alt="aquarium" >
     </div>
 
