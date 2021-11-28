@@ -8,13 +8,9 @@
 
 </head>
 
-<script type='text/javascript'>
 
-    setTimeout("location.reload();",1500000);
-    
-</script>
 
-<body>
+<body  id = "body">
 
 
 <header>
@@ -65,10 +61,35 @@
       </ul>
   </article>
 </section>
-<img src={{ atelaLink }} alt="Image Of fish">
+<div>
+<b>1bc</b>
+<br>
+
+<b>{{atelaLink}}</b>
+<script >
+
+   
+    document.getElementById("aiz").onload = function() {myFunction()};
+    console.log("te");
+    
+    console.log("te");
+    var cls = '{{atelaLink}}' ;
+
+    var x = document.createElement("img");
+    x.src = cls;
+    document.getElementById('body').appendChild(x);
+    down.innerHTML = "Image Element Added."; 
+    
+    
+     setTimeout("location.reload();",1500000);
+
+    
+</script>
+
+</body>
 <footer>
   <p> </p>
 </footer>
 
-</body>
+
 </html>

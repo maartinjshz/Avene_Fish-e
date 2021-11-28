@@ -8,9 +8,11 @@ import  math
 from collections import Counter
 from picamera.array import PiRGBArray
 from picamera import PiCamera
-from datetime import datetime
+import datetime
 import time
+import random 
 import os
+import string
 
 print("Programma sāk darbu")
 
@@ -75,6 +77,9 @@ def procenti(punkts,VidVrtTirs, VidVrtNeTirs):
     Attalums = VidNeTirsNorma +  VidTirsNorma 
     return  round(VidTirsNorma/  Attalums * 100 , 3)
 
+def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
+    return ''.join(random.choice(chars) for _ in range(size))
+
 # Saņemt tīrību?!?
 def TirVert():
 
@@ -90,10 +95,13 @@ def TirVert():
         myimg = frame.array
         # display the image on screen and wait for a keypress
         #os.remove("static/attels/frame.jpg")
-        Datums = str(time.localtime(time.time()))
+        
+        Datums = id_generator()
         atelaLink =  "static/attels/fram%se.jpg"  % Datums  
-        cv2.imwrite(atelaLink   , myimg)     # save frame as JPEG file
-       
+       # saite = "static/attels/" + atelaLink
+        cv2.imwrite(atelaLink  , myimg)     # save frame as JPEG file
+        atelaLink = "/" + atelaLink# saite  #+   atelaLink
+        print(atelaLink)
         MinVert = [10**5,10**5,10**5,10**5,10**5]
         MinVertPied = ["","","","",""]
         avg_color_per_row = numpy.average(myimg, axis=0)
@@ -123,7 +131,7 @@ def TirVert():
         cv2.waitKey(50)
         key = cv2.waitKey(1000) & 0xFF
         print("Apprēķini ir veikti")
-        return Biezakais
+        return atelaLink
 
 print("Aplikācijas sāk darbu")
 
@@ -132,10 +140,12 @@ VidVrtTirs, VidVrtNeTirst=Vid_vertiba_makoniem(TirsVert,NeTirsVert)
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/',methods=['GET', 'POST'])
 def home():
-    TirVert()
-    return render_template('sakums.html')
+    atelaLink = TirVert()
+    print(atelaLink)
+
+    return render_template('sakums.html', atelaLink = atelaLink)
 
 
 @app.route('/assistent')
