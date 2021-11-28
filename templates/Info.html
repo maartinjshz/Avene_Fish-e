@@ -125,28 +125,12 @@ a .container:hover {
     float: center;
     background-color:rgb(112, 112, 112);
     border: 2px solid black; 
-    margin: 5%;
+    margin: 10%;
 }
 
 
 
-.split {
-  height: 100%;
-  width: 50%;
-  position: fixed;
-  z-index: 1;
 
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-
-.left {
-  left: 0;
-}
-
-.right {
-  right: 0;
-}
 
 </style>
 
@@ -166,7 +150,10 @@ a .container:hover {
   <h2> Data </h2>
   
 </header>
-
+<header style="color:rgb(255, 153, 0)">
+    <h3> Data from camera </h3>
+    
+  </header>
 <section id="KamSekcija">
 
     <div id="DatuTeksts" class="split left">
@@ -174,12 +161,14 @@ a .container:hover {
         Šobrīd kamerā ūdnes ir: {{tirums}}
     </div>  
 
-    <div class="split right">
+    <div >
         <img id= "Attlins" src="{{atelaLink}}" alt="aquarium" >
     </div>
 
 </section>
-  
+<header style="color:rgb(255, 153, 0)">
+    <h3> Data from camera </h3>
+  </header>
 
  <!-- <img src="{{atelaLink}}" alt="Girl in a jacket"> -->
 
