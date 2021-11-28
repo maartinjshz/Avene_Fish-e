@@ -128,7 +128,7 @@ def TirVert():
         print(Biezakais)
         cv2.waitKey(50)
         key = cv2.waitKey(1000) & 0xFF
-        return atelaLink
+        return [atelaLink,Biezakais]
 
 print("Aplikācijas sāk darbu")
 
@@ -141,7 +141,7 @@ app = Flask(__name__)
 def home():
    
 
-    return render_template('sakums.html', atelaLink = atelaLink)
+    return render_template('sakums.html')
 
 
 @app.route('/assistent')
@@ -161,9 +161,9 @@ def settings():
 # 
 @app.route('/info',methods=['GET', 'POST'])
 def info():
-    atelaLink = TirVert()
+    atelaLink,tirums = TirVert()
     print(atelaLink)
-    return render_template('Info.html', atelaLink = atelaLink)
+    return render_template('Info.html', atelaLink = atelaLink,tirums=tirums)
 
 
 if __name__ == '__main__':
