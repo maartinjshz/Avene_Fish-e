@@ -100,8 +100,11 @@ def TirVert():
        # saite = "static/attels/" + atelaLink
         cv2.imwrite(atelaLink  , myimg)     # save frame as JPEG file
         atelaLink = "/" + atelaLink# saite  #+   atelaLink
-        MinVert = [10**5,10**5,10**5,10**5,10**5]
-        MinVertPied = ["","","","",""]
+        MinVert = []
+        MinVertPied=[]
+        for i in range(0,14):
+            MinVert.append(10**3)
+            MinVertPied.append("")
         avg_color_per_row = numpy.average(myimg, axis=0)
         avg_color = numpy.average(avg_color_per_row, axis=0)
         for i in TirsVert:
