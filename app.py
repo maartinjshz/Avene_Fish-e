@@ -126,6 +126,7 @@ def TirVert():
         Biezakais = Most_Common(MinVertPied)
         print(Biezakais)
         cv2.waitKey(50)
+        rawCapture.truncate(0)
         key = cv2.waitKey(1000) & 0xFF
         return [atelaLink,Biezakais]
 
